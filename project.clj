@@ -1,4 +1,4 @@
-(defproject edn-service-stub "0.1.0-SNAPSHOT"
+(defproject edn-service-spike "0.1.0"
   :description "A spike demonstrating how edn can be used in a REST service"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
@@ -13,4 +13,4 @@
                 :compiler
                 {:output-to "resources/public/js/compiled.js",
                  :optimizations :advanced}}]}
-  :ring {:handler edn-service-stub.routes/handler})
+  :ring {:handler spike.backend/handler})

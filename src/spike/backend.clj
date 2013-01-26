@@ -1,4 +1,4 @@
-(ns edn-service-stub.routes
+(ns spike.backend
   (:use compojure.core
         compojure.route
         ring.middleware.edn))

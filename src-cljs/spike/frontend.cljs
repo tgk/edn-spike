@@ -3,7 +3,6 @@
    [cljs.reader :as reader]
    [goog.dom :as dom]
    [goog.events :as ev]
-   [goog.string :as gstr]
    [goog.net.XhrIo :as xhr]))
 
 (defn- extract-response [message]
