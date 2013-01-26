@@ -3,6 +3,8 @@
 Spike REST service using the content type "edn/application".
 The backend is implemented in Clojure, the frontend in ClojureScript.
 
+There is a small blog post describing the spike [here](http://tgk.github.com/2013/01/edn-service-spike.html).
+
 ## Usage
 
 The ClojureScript portion of the project can be compiled using the cljsbuild plugin
