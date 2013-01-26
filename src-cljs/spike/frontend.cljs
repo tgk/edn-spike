@@ -15,14 +15,10 @@
   (let [target (dom/getElement id)]
     (dom/setTextContent target val)))
 
-(defn- extract-from-dom
-  [id]
-  (gstr/toNumber (.-value (dom/getElement id))))
-
 (defn callback
   [message]
   (let [result (extract-response message)
-        count (:reply result)]
+        count (:message result)]
     (insert-into-dom "result" count)))
 
 (defn edn-call
@@ -34,7 +30,7 @@
             (clj->js {"Content-Type" "application/edn"})))
 
 (defn send-request [e]
-  (let [body {:req (extract-from-dom "thing")}]
+  (let [body {:name (.-value (dom/getElement "name"))}]
     (edn-call "/rest" callback "POST" body)))
 
 (defn ^:export init []

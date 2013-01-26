@@ -9,11 +9,14 @@
    :body (pr-str data)})
 
 (defroutes main-routes
+  (GET "/" req (slurp "resources/public/index.html"))
+  
   (GET "/rest" req
-       (generate-response {:reply 0}))
+       (generate-response {:message "Hello stranger"}))
 
   (POST "/rest" {edn-params :edn-params}
-        (generate-response {:reply (inc (:req edn-params))}))
+        (generate-response
+         {:message (str "Hello " (->> edn-params :name reverse (apply str)))}))
 
   (resources "/"))
 
