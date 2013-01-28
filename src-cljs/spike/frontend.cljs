@@ -16,15 +16,14 @@
 
 (defn callback
   [message]
-  (let [result (extract-response message)
-        count (:message result)]
-    (insert-into-dom "result" count)))
+  (let [result (extract-response message)]
+    (insert-into-dom "result" (:message result))))
 
 (defn edn-call
   [path callback method data]
   (xhr/send path
             callback
-            "POST"
+            method
             (pr-str data)
             (clj->js {"Content-Type" "application/edn"})))
 
